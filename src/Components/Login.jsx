@@ -1,55 +1,65 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../Auth/AuthProvider';
 
 const Login = () => {
-  const [fullname, setFullname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-
-    try {
-      const response = await fetch('http://localhost:1337/api/auth/local/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: fullname,
-          email,
-          password,
-        }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        alert('Signup successful!');
-      } else {
-        alert(data.message[0].messages[0].message);
-      }
-    } catch (error) {
-      console.error('Error signing up:', error);
-      alert('Error signing up');
-    }
-  };
+    const { login,  loginWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+  
+    const togglePassword = () => {
+      setShowPassword(!showPassword);
+    };
+  
+    
+  
+    const handleSignIn = (e) => {
+      e.preventDefault();
+      setIsLoading(true);
+  
+      const form = new FormData(e.target);
+      const email = form.get("email");
+      const password = form.get("password");
+  
+      login(email, password)
+        .then(() => {
+          setIsLoading(false);
+          navigate(location.state?.from?.pathname || "/");
+        })
+        .catch(() => {
+          setIsLoading(false);
+          toast.error("Login failed. Please check your credentials.");
+        });
+    };
+  
+    const handleGoogleLogin = () => {
+      setIsLoading(true);
+      loginWithGoogle()
+        .then(() => {
+          setIsLoading(false);
+          navigate(location.state?.from?.pathname || "/");
+        })
+        .catch(() => {
+          setIsLoading(false);
+          toast.error("Google login failed. Try again later.");
+        });
+    };
 
   return (
     <div className="flex items-center justify-center">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSignIn}>
           
           <div className="mb-4">
             <label className="block text-gray-700">Email Address</label>
             <input
               type="email"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+             name='email'
               required
             />
           </div>
@@ -58,8 +68,7 @@ const Login = () => {
             <input
               type="password"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+             name='password'
               required
             />
           </div>
@@ -72,8 +81,8 @@ const Login = () => {
           </button>
         </form>
         <div className="flex justify-center items-center mt-6">
-          <p
-           className="bg-red-400 text-white px-4 py-2 rounded mr-2 flex items-center gap-2">Sign in with <FcGoogle />
+          <p onClick={handleGoogleLogin}
+           className="btn bg-red-400 text-white px-4 py-2 rounded mr-2 flex items-center gap-2">Sign in with <FcGoogle />
           </p>
         </div>
         <div className="mt-4 text-center">
