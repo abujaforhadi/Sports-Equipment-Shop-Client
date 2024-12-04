@@ -3,11 +3,13 @@ import MainLayout from "../Layout/MainLayout";
 import Login from "../Components/Login";
 import Registration from "../Components/Registration";
 import { createBrowserRouter } from "react-router";
-import AddEquipment from "../Components/AddEquipment.Jsx";
 import PrivateRouter from "./PrivateRouter";
 import AllProducts from "../Components/allProducts";
 import MyEquipment from "../Components/MyEquipment";
+import ProductDetails from "../Components/ProductDetails";
+import AddEquipment from "../Components/AddEquipment.Jsx";
 
+// Updated router definition
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +26,16 @@ export const router = createBrowserRouter([
       {
         path: "/all-products",
         element: <AllProducts />,
+      },
+      {
+        path: "/equipment/:id",
+        element: (
+          <PrivateRouter>
+           <ProductDetails />
+          </PrivateRouter>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:3000/data/${params._id}`)
+
       },
       {
         path: "/registration",

@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
         {/* Website Name and Copyright */}
         <div className="text-center lg:text-left">
-          <h1 className="text-xl font-bold">BDSports</h1>
+          <h1 className="text-xl font-bold text-red-500">BD<span className="text-green-500">Sports</span></h1>
           <p>Copyright © {new Date().getFullYear()} - All rights reserved.</p>
         </div>
 
