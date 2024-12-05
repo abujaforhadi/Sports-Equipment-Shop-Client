@@ -6,7 +6,6 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   updateProfile,
-  sendPasswordResetEmail,
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
@@ -32,7 +31,6 @@ const AuthProvider = ({ children }) => {
       setUser(userCredential.user);
       toast.success("Account created successfully!");
     } catch (error) {
-      // console.error("Error during registration:", error.message);
       toast.error(`Error: ${error.message}`);
     } finally {
       setLoading(false);
@@ -51,15 +49,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const resetPassword = async (email) => {
-    try {
-      await sendPasswordResetEmail(auth, email);
-      toast.success("Password reset email sent!");
-    } catch (error) {
-      console.error("Error resetting password:", error.message);
-      toast.error(`Failed to send password reset email: ${error.message}`);
-    }
-  };
+ 
 
   const login = async (email, password) => {
     setLoading(true);
@@ -120,7 +110,6 @@ const AuthProvider = ({ children }) => {
     login,
     logout,
     loading,
-    resetPassword,
     ProfileUpdate,
     loginWithGoogle,
   };
@@ -138,7 +127,7 @@ const AuthProvider = ({ children }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light" // Change to 'dark' for a dark theme
+        theme="light" 
       />
     </AuthContext.Provider>
   );

@@ -8,6 +8,7 @@ import AllProducts from "../Components/allProducts";
 import MyEquipment from "../Components/MyEquipment";
 import ProductDetails from "../Components/ProductDetails";
 import AddEquipment from "../Components/AddEquipment.Jsx";
+import UpdateEquipment from "../Components/UpdateEquipment";
 
 // Updated router definition
 export const router = createBrowserRouter([
@@ -37,6 +38,15 @@ export const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:3000/data/${params._id}`)
 
       },
+      {
+        path: "/update-equipment/:id",
+        element: (
+          <PrivateRouter>
+            <UpdateEquipment />
+          </PrivateRouter>
+        ),
+      },
+      
       {
         path: "/registration",
         element: <Registration />,
