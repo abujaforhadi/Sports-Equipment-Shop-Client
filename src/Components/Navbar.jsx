@@ -18,27 +18,22 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
+             <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/all-products">All Products</NavLink>
+          </li>
+          {user && (
             <>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/add-equipment">Add Equipment</NavLink>
               </li>
               <li>
-                <NavLink to="/profile">My Profile</NavLink>
-              </li>
-              {user && (
-                <>
-                  <li>
-                    <NavLink to="/services">Services</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/jobs">Jobs Apply</NavLink>
-                  </li>
-                </>
-              )}
-              <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink to="/my-equipment">My Equipment List</NavLink>
               </li>
             </>
+          )}
           </ul>
         </div>
 
@@ -77,17 +72,17 @@ const Navbar = () => {
             <div className="relative">
               <img
                 src={
-                  user.photoURL ||
+                  user?.photoURL ||
                   "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
                 }
-                alt={user.displayName || "User"}
+                alt={user?.displayName || "User"}
                 className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
               />
               {showTooltip && (
                 <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black text-white text-sm rounded-lg">
-                  {user.displayName || "User"}
+                  {user?.displayName || "User"}
                 </div>
               )}
             </div>
