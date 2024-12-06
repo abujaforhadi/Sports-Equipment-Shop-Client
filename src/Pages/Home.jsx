@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "../Components/Slider";
 import { Link, useLoaderData } from "react-router";
 import Card from "../Components/Card";
+import SportsBrands from "../Components/SportsBrands";
 
 const Home = () => {
   const data = useLoaderData();
@@ -10,16 +11,21 @@ const Home = () => {
   return (
     <section>
       <div className="">
-        <Slider></Slider>
+        <Slider />
       </div>
+
+      {/* Tooltip Placement on the New Arrivals Section */}
       <div>
         <h1 className=" text-center animate__animated animate__flash animate__infinite text-2xl pb-4 font-bold text-red-600">
           New Arrivals!
         </h1>
 
+       
+       
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data.map((product) => (
-            <Card key={product.id} product={product}></Card>
+            <Card key={product.id} product={product} />
           ))}
         </div>
         <p className="flex justify-center my-4">
@@ -29,7 +35,9 @@ const Home = () => {
         </p>
       </div>
 
-      <div></div>
+      <div>
+        <SportsBrands />
+      </div>
     </section>
   );
 };

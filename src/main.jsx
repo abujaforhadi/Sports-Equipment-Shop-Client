@@ -7,6 +7,8 @@ import AuthProvider from "./Auth/AuthProvider";
 import 'animate.css';
 import "aos/dist/aos.css";
 
+import 'react-tooltip/dist/react-tooltip.css'
+
 
 
 createRoot(document.getElementById("root")).render(

@@ -4,16 +4,15 @@ import Loading from "./Loading";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [equipment, setEquipment] = useState(null); // State to hold the fetched product data
-
+  const [equipment, setEquipment] = useState(null); 
   useEffect(() => {
     fetch(`https://sports2.vercel.app/data/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          setEquipment(data[0]); // If data is an array, use the first element
+          setEquipment(data[0]); 
         } else {
-          setEquipment(data); // If data is a single object, use it directly
+          setEquipment(data); 
         }
       })
       .catch((error) => console.error("Error fetching product details:", error));

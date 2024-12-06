@@ -76,19 +76,16 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* Theme Toggle and User Actions */}
       <div className="navbar-end flex items-center gap-4">
-        {/* Theme Toggle */}
         
           
           <input type="checkbox" value="dark" className="toggle theme-controller" />
-        {/* User Actions */}
         {user && user.email ? (
           <div className="flex items-center gap-4">
             <img
               src={user.photoURL || "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"}
               alt={user.displayName || "User"}
-              title={user.displayName || "User"}
+              
               className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"
             />
             <button
