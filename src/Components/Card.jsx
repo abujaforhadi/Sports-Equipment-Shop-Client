@@ -1,19 +1,26 @@
 import React from "react";
+import { Link } from "react-router";
 
-const Card = () => {
+const Card = ({ product }) => {
+  const { _id, image, itemName, price,stockStatus } = product;
+  console.log(product);
   return (
-    <div className="card card-compact bg-base-100 w-96 shadow-xl">
+    <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes"
-        />
+        <img src={image} alt={itemName} className="w-1/3" />
       </figure>
+      <div className="badge badge-primary badge-outline mx-5">Only <p className="animate__animated animate__swing animate__infinite text-red-700  p-1"> {stockStatus} </p> Left!</div>
+
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+        <h2 className="card-title">{itemName}</h2>
+        <p className="text-gray-800">Price: ${price}</p>
+        <div className="card-actions justify-center">
+          <Link
+            to={`/equipment/${_id}`}
+            className="btn text-blue-500 hover:underline"
+          >
+            View Details
+          </Link>
         </div>
       </div>
     </div>

@@ -4,6 +4,8 @@ import "./index.css";
 import { RouterProvider } from "react-router";
 import { router } from "./Routers/Router";
 import AuthProvider from "./Auth/AuthProvider";
+import 'animate.css';
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

@@ -14,8 +14,8 @@ const AddEquipment = () => {
     customization: "",
     processingTime: "",
     stockStatus: "",
-    userEmail: "", // Filled with logged-in user's email
-    userName: "",  // Filled with logged-in user's name
+    userEmail: "", 
+    userName: "", 
   });
 
   // Get user data from AuthContext

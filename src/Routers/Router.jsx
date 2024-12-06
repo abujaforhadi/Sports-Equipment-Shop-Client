@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
-        loader:()=>fetch("https://sports2.vercel.app/data")
+        loader:()=>fetch("https://sports2.vercel.app/data-limit")
       },
       {
         path: "/login",

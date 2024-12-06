@@ -3,17 +3,38 @@ import { Link } from "react-router";
 
 const AllProducts = () => {
   const [equipment, setEquipment] = useState([]);
+  const [isSorted, setIsSorted] = useState(false); 
 
   useEffect(() => {
     fetch("https://sports2.vercel.app/data")
       .then((response) => response.json())
-      .then((data) => setEquipment(data))
+      .then((data) => {
+        const shuffledData = data.sort(() => Math.random() - 0.5);
+        setEquipment(shuffledData);
+      })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
+
+  const handleSortByPrice = () => {
+    if (!isSorted) {
+      const sortedEquipment = [...equipment].sort((a, b) => a.price - b.price);
+      setEquipment(sortedEquipment);
+      setIsSorted(true); 
+    }
+  };
 
   return (
     <div className="container mx-auto my-6">
       <h1 className="text-2xl font-bold text-center mb-6">All Products</h1>
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={handleSortByPrice}
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          disabled={isSorted} 
+        >
+          Sort by Price
+        </button>
+      </div>
       <table className="min-w-full table-auto border-collapse">
         <thead>
           <tr>

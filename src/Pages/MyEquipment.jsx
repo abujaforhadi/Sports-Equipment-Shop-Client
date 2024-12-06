@@ -60,7 +60,7 @@ const MyEquipment = () => {
       );
       toast.success("Equipment deleted successfully.");
     } catch (error) {
-      console.error("Error deleting equipment:", error);
+      // console.error("Error deleting equipment:", error);
       toast.error("Error deleting equipment.");
     } finally {
       setLoading(false);
@@ -75,19 +75,19 @@ const MyEquipment = () => {
   return (
     <div className="container mx-auto my-6">
       <h1 className="text-3xl font-bold mb-4">My Equipment</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {equipmentList.map((equipment) => (
           <div
             key={equipment._id}
-            className="  p-6 shadow-md rounded-md"
+            className="  p-6 shadow-md rounded-md bg-white/20"
           >
             <img
               src={equipment.image}
               alt={equipment.itemName}
-              className="w-full h-48 object-cover mb-4"
+              className="w-1/2 mx-auto  object-cover mb-4"
             />
             <h2 className="text-2xl font-semibold">{equipment.itemName}</h2>
-            <p className="text-lg text-gray-700 mb-4">{equipment.description}</p>
+            <p className="text-xs text-gray-400 mb-4">{equipment.description}</p>
             <p className="font-semibold text-lg mb-2">
               Category: {equipment.categoryName}
             </p>
