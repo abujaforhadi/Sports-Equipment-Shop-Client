@@ -5,6 +5,8 @@ import { RouterProvider } from "react-router";
 import { router } from "./Routers/Router";
 import AuthProvider from "./Auth/AuthProvider";
 import 'animate.css';
+import "aos/dist/aos.css";
+
 
 
 createRoot(document.getElementById("root")).render(

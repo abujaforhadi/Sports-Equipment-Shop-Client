@@ -3,8 +3,16 @@ import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import ConfirmModal from "../Components/ConfirmModal"; // Modal to confirm deletion
 import { AuthContext } from "../Auth/AuthProvider";
+import AOS from "aos";
+
 
 const MyEquipment = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true, 
+    });
+  }, []);
   const [equipmentList, setEquipmentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -71,13 +79,14 @@ const MyEquipment = () => {
   if (loading) {
     return <loading></loading>;
   }
+  
 
   return (
     <div className="container mx-auto my-6">
-      <h1 className="text-3xl font-bold mb-4">My Equipment</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center">My Equipment</h1>
       <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {equipmentList.map((equipment) => (
-          <div
+          <div data-aos="flip-left"
             key={equipment._id}
             className="  p-6 shadow-md rounded-md bg-white/20"
           >

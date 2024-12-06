@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
+import AOS from "aos";
+
 
 const Card = ({ product }) => {
+
   const { _id, image, itemName, price,stockStatus } = product;
-  console.log(product);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true, 
+    });
+  }, []);
+  
+  // console.log(product);
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div data-aos="fade-up" className="card card-compact bg-base-100 shadow-xl">
       <figure>
         <img src={image} alt={itemName} className="w-1/3" />
       </figure>

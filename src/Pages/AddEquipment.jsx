@@ -3,7 +3,6 @@ import { AuthContext } from "../Auth/AuthProvider"; // Assuming this provides th
 import Swal from "sweetalert2";
 
 const AddEquipment = () => {
-  // State to hold form data
   const [formData, setFormData] = useState({
     image: "",
     itemName: "",
@@ -18,21 +17,18 @@ const AddEquipment = () => {
     userName: "", 
   });
 
-  // Get user data from AuthContext
   const { user } = useContext(AuthContext);
 
-  // Update form data when user is available
   useEffect(() => {
     if (user) {
       setFormData((prev) => ({
         ...prev,
-        userEmail: user.email, // Set user email
-        userName: user.displayName || "Default User", // Set user name, fallback to "Default User"
+        userEmail: user.email,
+        userName: user.displayName || "Default User", 
       }));
     }
   }, [user]);
 
-  // Function to validate the form before submitting
   const validateForm = () => {
     const requiredFields = [
       "image",
@@ -212,7 +208,7 @@ const AddEquipment = () => {
             Rating (1-5)
           </label>
           <input
-            type="number"
+            type="text"
             name="rating"
             id="rating"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
