@@ -9,7 +9,7 @@ const Hero1 = () => {
                 <div className="px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
                     {/* Left Content */}
                     <div className="lg:w-1/2">
-                        <h1 className="text-4xl font-bold leading-tight text-gray-800 md:text-5xl dark:text-white">
+                        <h1 className="text-4xl font-bold leading-tight  md:text-5xl dark:text-white">
                             Gear Up for Your Next Adventure
                         </h1>
                         <p className="mt-4 text-lg text-gray-600 md:mt-6 md:text-xl dark:text-gray-400">

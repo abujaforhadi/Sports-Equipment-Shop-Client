@@ -79,7 +79,7 @@ const MyEquipment = () => {
         {equipmentList.map((equipment) => (
           <div
             key={equipment._id}
-            className="bg-white p-6 shadow-md rounded-md"
+            className="  p-6 shadow-md rounded-md"
           >
             <img
               src={equipment.image}

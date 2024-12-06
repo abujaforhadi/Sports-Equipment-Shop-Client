@@ -1,11 +1,16 @@
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { AuthContext } from "../Auth/AuthProvider";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink } from "react-router"; 
+import { themeChange } from "theme-change";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  useEffect(() => {
+    themeChange(false); // Initialize theme-change
+  }, []);
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -26,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar top-0 left-0 right-0 z-50 shadow">
+    <div className="navbar top-0 left-0 right-0 z-50 shadow bg-base-100 dark:text-white">
       {/* Logo and Mobile Menu */}
       <div className="md:navbar-start">
         <div className="dropdown">
@@ -35,14 +40,16 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow dark:text-white"
             role="menu"
           >
             {navLinks.map(
               (link) =>
                 (!link.authRequired || user) && (
                   <li key={link.name} role="menuitem">
-                    <NavLink to={link.path}>{link.name}</NavLink>
+                    <NavLink to={link.path} className="capitalize">
+                      {link.name}
+                    </NavLink>
                   </li>
                 )
             )}
@@ -55,12 +62,14 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 dark:text-white">
           {navLinks.map(
             (link) =>
               (!link.authRequired || user) && (
                 <li key={link.name}>
-                  <NavLink to={link.path}>{link.name}</NavLink>
+                  <NavLink to={link.path} className="capitalize">
+                    {link.name}
+                  </NavLink>
                 </li>
               )
           )}
@@ -68,21 +77,16 @@ const Navbar = () => {
       </div>
 
       {/* Theme Toggle and User Actions */}
-      <div className="navbar-end">
-        <label className="grid cursor-pointer place-items-center">
-          <input
-            type="checkbox"
-            aria-label="Toggle dark mode"
-            className="toggle theme-controller bg-base-content"
-          />
-        </label>
+      <div className="navbar-end flex items-center gap-4">
+        {/* Theme Toggle */}
+        
+          
+          <input type="checkbox" value="dark" className="toggle theme-controller" />
+        {/* User Actions */}
         {user && user.email ? (
           <div className="flex items-center gap-4">
             <img
-              src={
-                user.photoURL ||
-                "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
-              }
+              src={user.photoURL || "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"}
               alt={user.displayName || "User"}
               title={user.displayName || "User"}
               className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"

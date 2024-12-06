@@ -69,7 +69,7 @@ const UpdateEquipment = () => {
         </div>
       )}
 
-<form onSubmit={handleUpdate} className="bg-white p-6 shadow-md rounded">
+<form onSubmit={handleUpdate} className="  p-6 shadow-md rounded">
   {Object.keys(formData).map((field) =>
     field !== "_id" ? ( 
       <div key={field} className="mb-4">

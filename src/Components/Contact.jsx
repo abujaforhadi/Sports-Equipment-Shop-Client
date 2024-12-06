@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white font-[sans-serif]">
+        <div className="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl   font-[sans-serif]">
             <div>
                 <h1 className="text-gray-800 text-3xl font-extrabold">Let's Talk</h1>
                 <p className="text-sm text-gray-500 mt-4">

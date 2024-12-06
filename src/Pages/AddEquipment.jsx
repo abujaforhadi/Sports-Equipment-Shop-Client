@@ -119,7 +119,7 @@ const AddEquipment = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-white shadow-md rounded">
+    <div className="p-6 max-w-4xl mx-auto  shadow-md rounded">
       <h2 className="text-2xl font-bold mb-4 text-center">Add Equipment</h2>
       <form onSubmit={handleSubmit}>
         {/* Image URL */}

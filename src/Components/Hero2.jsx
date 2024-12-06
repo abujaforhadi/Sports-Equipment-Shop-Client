@@ -11,10 +11,10 @@ const Hero2 = () => {
             <div className="relative px-6 py-16 mx-auto  lg:flex lg:items-center lg:gap-12">
                 {/* Left Content */}
                 <div className="lg:w-1/2 text-center lg:text-left">
-                    <h1 className="text-4xl font-extrabold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
+                    <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl dark:text-white">
                         Discover Top-Tier Sports Gear
                     </h1>
-                    <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 sm:mt-6 sm:text-xl">
+                    <p className="mt-4 text-lg text-gray-500 dark:text-gray-400 sm:mt-6 sm:text-xl">
                         Elevate your game with our premium collection of sports equipment, designed for athletes who demand the best.
                     </p>
                     <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
