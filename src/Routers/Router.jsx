@@ -1,14 +1,16 @@
 import Home from "../Pages/Home";
 import MainLayout from "../Layout/MainLayout";
-import Login from "../Components/Login";
-import Registration from "../Components/Registration";
+import Login from "../Pages/Login.jsx";
+import Registration from "../Pages/Registration.jsx";
 import { createBrowserRouter } from "react-router";
 import PrivateRouter from "./PrivateRouter";
-import AllProducts from "../Components/allProducts";
-import MyEquipment from "../Components/MyEquipment";
+import AllProducts from "../Pages/AllProducts";
+import MyEquipment from "../Pages/MyEquipment.jsx";
 import ProductDetails from "../Components/ProductDetails";
-import AddEquipment from "../Components/AddEquipment.Jsx";
+import AddEquipment from "../Pages/AddEquipment.jsx";
 import UpdateEquipment from "../Components/UpdateEquipment";
+import Error from "../Pages/Error.jsx";
+import Contact from "../Components/Contact.jsx";
 
 // Updated router definition
 export const router = createBrowserRouter([
@@ -19,6 +21,7 @@ export const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+        loader:()=>fetch("https://sports2.vercel.app/data")
       },
       {
         path: "/login",
@@ -29,13 +32,17 @@ export const router = createBrowserRouter([
         element: <AllProducts />,
       },
       {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
         path: "/equipment/:id",
         element: (
           <PrivateRouter>
            <ProductDetails />
           </PrivateRouter>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/data/${params._id}`)
+        loader: ({ params }) => fetch(`https://sports2.vercel.app/data/${params._id}`)
 
       },
       {
@@ -45,6 +52,7 @@ export const router = createBrowserRouter([
             <UpdateEquipment />
           </PrivateRouter>
         ),
+
       },
       
       {
@@ -68,5 +76,6 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+    errorElement: <Error></Error>
   },
 ]);

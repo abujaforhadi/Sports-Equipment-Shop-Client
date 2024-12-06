@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import ConfirmModal from "./ConfirmModal"; // Modal to confirm deletion
+import ConfirmModal from "../Components/ConfirmModal"; // Modal to confirm deletion
 import { AuthContext } from "../Auth/AuthProvider";
 
 const MyEquipment = () => {
@@ -19,7 +19,7 @@ const MyEquipment = () => {
 
   useEffect(() => {
     if (user && user.email) {
-      fetch(`http://localhost:3000/data`)
+      fetch(`https://sports2.vercel.app/data`)
         .then((response) => response.json())
         .then((data) => {
           // console.log("Fetched data:", data);
@@ -52,7 +52,7 @@ const MyEquipment = () => {
   const confirmDelete = async () => {
     setLoading(true);
     try {
-      await fetch(`http://localhost:3000/data/${equipmentToDelete}`, {
+      await fetch(`https://sports2.vercel.app/data/${equipmentToDelete}`, {
         method: "DELETE",
       });
       setEquipmentList((prev) =>

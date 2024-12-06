@@ -21,7 +21,7 @@ const UpdateEquipment = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/data/${id}`)
+    fetch(`https://sports2.vercel.app/data/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -36,7 +36,7 @@ const UpdateEquipment = () => {
     e.preventDefault();
 
     // console.log(formData); 
-    fetch(`http://localhost:3000/data/${id}`, {
+    fetch(`https://sports2.vercel.app/data/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

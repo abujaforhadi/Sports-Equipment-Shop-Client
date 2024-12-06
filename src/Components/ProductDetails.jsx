@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const [equipment, setEquipment] = useState(null); // State to hold the fetched product data
 
   useEffect(() => {
-    fetch(`http://localhost:3000/data/${id}`)
+    fetch(`https://sports2.vercel.app/data/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {

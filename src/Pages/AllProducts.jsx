@@ -5,7 +5,7 @@ const AllProducts = () => {
   const [equipment, setEquipment] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/data")
+    fetch("https://sports2.vercel.app/data")
       .then((response) => response.json())
       .then((data) => setEquipment(data))
       .catch((error) => console.error("Error fetching data:", error));

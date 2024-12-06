@@ -74,7 +74,7 @@ const AddEquipment = () => {
     if (!validateForm()) return;
 
     // Simulate form submission (you can use fetch/axios here to send the data to your server)
-    fetch("http://localhost:3000/data", {
+    fetch("https://sports2.vercel.app/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

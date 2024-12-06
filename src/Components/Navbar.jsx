@@ -5,10 +5,29 @@ import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await logout();
+    } catch (error) {
+      console.error("Logout failed", error);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "All Products", path: "/all-products" },
+    { name: "Add Equipment", path: "/add-equipment", authRequired: true },
+    { name: "My Equipment List", path: "/my-equipment", authRequired: true },
+  ];
 
   return (
-    <div className="navbar  bg-blue-100  top-0 left-0 right-0 z-50 shadow">
+    <div className="navbar top-0 left-0 right-0 z-50 shadow">
+      {/* Logo and Mobile Menu */}
       <div className="md:navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -17,81 +36,63 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            role="menu"
           >
-             <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/all-products">All Products</NavLink>
-          </li>
-          {user && (
-            <>
-              <li>
-                <NavLink to="/add-equipment">Add Equipment</NavLink>
-              </li>
-              <li>
-                <NavLink to="/my-equipment">My Equipment List</NavLink>
-              </li>
-            </>
-          )}
+            {navLinks.map(
+              (link) =>
+                (!link.authRequired || user) && (
+                  <li key={link.name} role="menuitem">
+                    <NavLink to={link.path}>{link.name}</NavLink>
+                  </li>
+                )
+            )}
           </ul>
         </div>
-
-        <Link
-          to="/"
-          className="text-xl md:text-2xl font-medium text-red-600 inline-flex"
-        >
+        <Link to="/" className="text-xl md:text-2xl font-medium text-red-600">
           Bd<span className="text-green-500">Sports</span>
         </Link>
       </div>
 
+      {/* Desktop Menu */}
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/all-products">All Products</NavLink>
-          </li>
-          {user && (
-            <>
-              <li>
-                <NavLink to="/add-equipment">Add Equipment</NavLink>
-              </li>
-              <li>
-                <NavLink to="/my-equipment">My Equipment List</NavLink>
-              </li>
-            </>
+          {navLinks.map(
+            (link) =>
+              (!link.authRequired || user) && (
+                <li key={link.name}>
+                  <NavLink to={link.path}>{link.name}</NavLink>
+                </li>
+              )
           )}
         </ul>
       </div>
 
+      {/* Theme Toggle and User Actions */}
       <div className="navbar-end">
+        <label className="grid cursor-pointer place-items-center">
+          <input
+            type="checkbox"
+            aria-label="Toggle dark mode"
+            className="toggle theme-controller bg-base-content"
+          />
+        </label>
         {user && user.email ? (
           <div className="flex items-center gap-4">
-            <div className="relative">
-              <img
-                src={
-                  user?.photoURL ||
-                  "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
-                }
-                alt={user?.displayName || "User"}
-                className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"
-                onMouseEnter={() => setShowTooltip(true)}
-                onMouseLeave={() => setShowTooltip(false)}
-              />
-              {showTooltip && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-black text-white text-sm rounded-lg">
-                  {user?.displayName || "User"}
-                </div>
-              )}
-            </div>
-
+            <img
+              src={
+                user.photoURL ||
+                "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
+              }
+              alt={user.displayName || "User"}
+              title={user.displayName || "User"}
+              className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"
+            />
             <button
-              onClick={logout}
+              onClick={handleLogout}
               className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
+              disabled={isLoggingOut}
             >
-              Logout
+              {isLoggingOut ? "Logging out..." : "Logout"}
             </button>
           </div>
         ) : (
