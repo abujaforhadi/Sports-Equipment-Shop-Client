@@ -1,8 +1,8 @@
-# EquiSports - Sports Equipment Online Store
+# BDSports - Sports Equipment Online Store
 
 **Live Site URL:** [https://bdsports.abujafor.me/](https://bdsports.abujafor.me/)
 
-EquiSports is a responsive and feature-rich e-commerce website dedicated to sports equipment. It allows users to browse, add, update, and purchase sports accessories across various categories. The website includes functionalities such as user authentication, product management, and a personalized experience for registered users.
+BDSports is a responsive and feature-rich e-commerce website dedicated to sports equipment. It allows users to browse, add, update, and purchase sports accessories across various categories. The website includes functionalities such as user authentication, product management, and a personalized experience for registered users.
 
 ## Features:
 - **Responsive Design:** Fully responsive across mobile, tablet, and desktop views.
@@ -19,7 +19,7 @@ EquiSports is a responsive and feature-rich e-commerce website dedicated to spor
 - **Frontend:** React, Tailwind CSS, Firebase Authentication
 - **Backend:** Node.js, Express, MongoDB
 - **Hosting:** 
-  - Frontend: Netlify
+  - Frontend: Firebase
   - Backend: Vercel
 - **Environment Variables:** Firebase config keys and MongoDB credentials are securely stored in environment variables.
 
