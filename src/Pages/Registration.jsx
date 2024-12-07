@@ -82,12 +82,12 @@ const Registration = () => {
 
   return (
     <div className="flex items-center justify-center ">
-      <div className="flex max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="w-1/2 bg-gray-100 flex justify-center items-center">
+      <div className="md:flex max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="md:w-1/2 bg-gray-100 hidden md:flex justify-center items-center">
           {View}
         </div>
 
-        <div className="w-1/2 p-6">
+        <div className="md:w-1/2 p-6">
           <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
           {error && (
             <div className="mb-4 text-red-500 text-sm text-center">{error}</div>

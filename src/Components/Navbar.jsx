@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
-    themeChange(false); // Initialize theme-change
+    themeChange(false); 
   }, []);
 
   const handleLogout = async () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar top-0 left-0 right-0 z-50 shadow bg-base-100 dark:text-white">
+    <div className="navbar justify-between md:justify-center top-0 left-0 right-0 z-50 shadow bg-base-100 dark:text-white">
       {/* Logo and Mobile Menu */}
       <div className="md:navbar-start">
         <div className="dropdown">
@@ -54,6 +54,7 @@ const Navbar = () => {
                   </li>
                 )
             )}
+           
           </ul>
         </div>
         <Link to="/" className="text-xl md:text-2xl font-medium text-red-600">
@@ -101,13 +102,13 @@ const Navbar = () => {
         ) : (
          <> <Link
          to="/login"
-         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
+         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition "
        >
          Login
        </Link>
        <Link
          to="/registration"
-         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
+         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition hidden md:flex"
        >
          Registration
        </Link></>

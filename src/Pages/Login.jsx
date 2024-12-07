@@ -8,7 +8,6 @@ const Login = () => {
   const { login, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const options = {
     animationData: pic,
@@ -17,9 +16,7 @@ const Login = () => {
   const { View } = useLottie(options);
 
 
-  const togglePassword = () => {
-    setShowPassword(!showPassword);
-  };
+ 
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -55,9 +52,9 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="flex max-w-4xl w-full bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="md:flex max-w-4xl w-full bg-white rounded-lg shadow-md overflow-hidden">
         {/* Left side: Login form */}
-        <div className="w-1/2 p-6">
+        <div className="md:w-1/2 p-6">
           <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
           <form onSubmit={handleSignIn}>
             <div className="mb-4">
@@ -99,7 +96,7 @@ const Login = () => {
         </div>
 
         {/* Right side: Lottie animation */}
-        <div className="w-1/2 bg-gray-100 flex justify-center items-center">
+        <div className="w-1/2 bg-gray-100 hidden md:flex justify-center items-center">
         {View}
         </div>
       </div>
