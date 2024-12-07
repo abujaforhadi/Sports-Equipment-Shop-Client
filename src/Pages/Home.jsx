@@ -1,46 +1,106 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "../Components/Slider";
 import { Link, useLoaderData } from "react-router";
 import Card from "../Components/Card";
 import SportsBrands from "../Components/SportsBrands";
 import DealsOfTheDay from "../Components/DealsOfTheDay";
+import CustomerReview from "../Components/CustomerReview";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { FaRegArrowAltCircleUp } from "react-icons/fa";
 
 const Home = () => {
   const data = useLoaderData();
-  // console.log(data);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false,
+      mirror: true,
+    });
+
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <section>
-      <div className="">
+    <section className="relative">
+      <div data-aos="fade-down">
         <Slider />
       </div>
 
-      {/* Tooltip Placement on the New Arrivals Section */}
-      <div>
-        <h1 className=" text-center animate__animated animate__flash animate__infinite text-2xl pb-4 font-bold text-red-600">
+      <div className="py-8">
+        <h1
+          className="text-center text-2xl pb-4 font-bold text-red-600 animate__animated animate__flash animate__infinite"
+          data-aos="zoom-in"
+        >
           New Arrivals!
         </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-6"
+          data-aos="fade-up"
+        >
           {data.map((product) => (
             <Card key={product.id} product={product} />
           ))}
         </div>
-        <p className="flex justify-center my-4">
-          <Link to="/all-products" className="btn btn-outline">
+        <p className="flex justify-center my-6" data-aos="fade-up">
+          <Link to="/all-products" className="btn btn-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600">
             View All Products
           </Link>
         </p>
       </div>
 
-      <div>
-        <DealsOfTheDay></DealsOfTheDay>
-        <h1 className="text-center py-2 text-sm">
-          SHOP BY <br />
-          <span className="text-2xl font-bold">BRANDS<span className="text-red-600">.</span></span>
-        </h1>
-        <SportsBrands />
+      <div className="py-8 bg-gray-100">
+        <div data-aos="zoom-in">
+          <DealsOfTheDay />
+        </div>
       </div>
+
+      <div className="py-8 px-6">
+        <h1 className="text-center py-2 text-2xl font-bold" data-aos="fade-right">
+          Client Reviews
+        </h1>
+        <div data-aos="fade-up">
+          <CustomerReview />
+        </div>
+      </div>
+
+      <div className="py-8 bg-gray-50">
+        <h1
+          className="text-center py-2 text-sm"
+          data-aos="fade-left"
+        >
+          SHOP BY <br />
+          <span className="text-2xl font-bold">
+            BRANDS<span className="text-red-600">.</span>
+          </span>
+        </h1>
+        <div data-aos="zoom-in">
+          <SportsBrands />
+        </div>
+      </div>
+
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 rounded-full bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300"
+          aria-label="Scroll to Top"
+        >
+          <FaRegArrowAltCircleUp />
+
+        </button>
+      )}
     </section>
   );
 };

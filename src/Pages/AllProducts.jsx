@@ -6,7 +6,7 @@ import Loading from "../Components/Loading";
 const AllProducts = () => {
   const [equipment, setEquipment] = useState([]);
   const [isSorted, setIsSorted] = useState(false);
-  const [loading, setLoading] = useState(true); // Added loading state
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     fetch("https://sports2.vercel.app/data")
@@ -14,11 +14,11 @@ const AllProducts = () => {
       .then((data) => {
         const shuffledData = data.sort(() => Math.random() - 0.5);
         setEquipment(shuffledData);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false); 
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false); 
       });
   }, []);
 
@@ -35,7 +35,7 @@ const AllProducts = () => {
       <div className="flex justify-center items-center min-h-screen">
         <Loading></Loading>
       </div>
-    ); // Display loading message while data is being fetched
+    );
   }
 
   return (
