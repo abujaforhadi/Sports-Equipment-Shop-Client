@@ -97,12 +97,18 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <Link
-            to="/login"
-            className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
-          >
-            Login
-          </Link>
+         <> <Link
+         to="/login"
+         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
+       >
+         Login
+       </Link>
+       <Link
+         to="/registration"
+         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
+       >
+         Registration
+       </Link></>
         )}
       </div>
     </div>
