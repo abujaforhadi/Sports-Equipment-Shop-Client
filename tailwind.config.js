@@ -60,7 +60,7 @@ export default {
   },
   plugins: [require("daisyui")], // Include DaisyUI plugin
   daisyui: {
-    themes: ["light", "dark"], // Add this to enable theme switching
+    themes: ["light", "dark","synthwave"], // Add this to enable theme switching
   },
 
 };

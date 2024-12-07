@@ -3,6 +3,7 @@ import Slider from "../Components/Slider";
 import { Link, useLoaderData } from "react-router";
 import Card from "../Components/Card";
 import SportsBrands from "../Components/SportsBrands";
+import DealsOfTheDay from "../Components/DealsOfTheDay";
 
 const Home = () => {
   const data = useLoaderData();
@@ -36,6 +37,7 @@ const Home = () => {
       </div>
 
       <div>
+        <DealsOfTheDay></DealsOfTheDay>
         <SportsBrands />
       </div>
     </section>

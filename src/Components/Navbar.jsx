@@ -79,7 +79,7 @@ const Navbar = () => {
       <div className="navbar-end flex items-center gap-4">
         
           
-          <input type="checkbox" value="dark" className="toggle theme-controller" />
+          <input type="checkbox" value="synthwave" className="toggle theme-controller" />
         {user && user.email ? (
           <div className="flex items-center gap-4">
             <img
