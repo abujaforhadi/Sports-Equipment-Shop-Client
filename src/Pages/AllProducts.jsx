@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import Loading from "../Components/Loading";
+
 
 const AllProducts = () => {
   const [equipment, setEquipment] = useState([]);
-  const [isSorted, setIsSorted] = useState(false); 
+  const [isSorted, setIsSorted] = useState(false);
+  const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     fetch("https://sports2.vercel.app/data")
@@ -11,17 +14,29 @@ const AllProducts = () => {
       .then((data) => {
         const shuffledData = data.sort(() => Math.random() - 0.5);
         setEquipment(shuffledData);
+        setLoading(false); // Set loading to false when data is fetched
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false in case of error
+      });
   }, []);
 
   const handleSortByPrice = () => {
     if (!isSorted) {
       const sortedEquipment = [...equipment].sort((a, b) => a.price - b.price);
       setEquipment(sortedEquipment);
-      setIsSorted(true); 
+      setIsSorted(true);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Loading></Loading>
+      </div>
+    ); // Display loading message while data is being fetched
+  }
 
   return (
     <div className="container mx-auto my-6">
@@ -30,7 +45,7 @@ const AllProducts = () => {
         <button
           onClick={handleSortByPrice}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-          disabled={isSorted} 
+          disabled={isSorted}
         >
           Sort by Price
         </button>

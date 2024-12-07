@@ -33,15 +33,16 @@ const ProductDetails = () => {
           alt={equipment.itemName}
           className="w-1/2  mx-auto"
         />
-        <h2 className="text-2xl font-semibold">{equipment.itemName}</h2>
-        <div className=" badge badge-primary badge-outline">
-          Only{" "}
-          <p className="animate__animated animate-bounce animate__infinite text-red-700  p-1">
-            {" "}
-            {equipment.stockStatus}{" "}
-          </p>{" "}
+        <div className="absolute -mt-10 badge badge-primary badge-outline">
+          Only
+          <p className="animate__animated animate-ping animate__infinite text-red-700  p-1">
+
+            {equipment.stockStatus}
+          </p>
           Left!
         </div>
+        <h2 className="text-2xl font-semibold">{equipment.itemName}</h2>
+
 
         <p className="text-lg text-gray-700 mb-4">{equipment.description}</p>
         <p className="font-semibold text-lg mb-2">

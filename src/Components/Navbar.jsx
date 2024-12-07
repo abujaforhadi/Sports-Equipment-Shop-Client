@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from "react";
-import { AiOutlineMenuFold } from "react-icons/ai";
+import { MdOutlineMenuOpen } from "react-icons/md";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Link, NavLink } from "react-router"; 
 import { themeChange } from "theme-change";
@@ -36,7 +36,8 @@ const Navbar = () => {
       <div className="md:navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
-            <AiOutlineMenuFold />
+          <MdOutlineMenuOpen />
+
           </div>
           <ul
             tabIndex={0}
@@ -85,6 +86,7 @@ const Navbar = () => {
             <img
               src={user.photoURL || "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"}
               alt={user.displayName || "User"}
+              title={user.displayName}
               
               className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"
             />

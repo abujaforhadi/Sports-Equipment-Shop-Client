@@ -52,7 +52,11 @@ const DealsOfTheDay = () => {
         <p className="mt-4 text-lg font-light"> SPORTS Equipment</p>
         <div className="flex justify-center md:justify-start gap-4 mt-6 text-center">
           <div>
-            <p className="text-4xl font-bold">{countdown.days}</p>
+          {/* <p className="animate__animated animate-ping animate__infinite text-red-700  p-1">
+
+{equipment.stockStatus}
+</p> */}
+            <p className="text-4xl font-bold ">{countdown.days}</p>
             <p className="text-sm font-light">DAYS</p>
           </div>
           <div>
@@ -64,7 +68,7 @@ const DealsOfTheDay = () => {
             <p className="text-sm font-light">MINS</p>
           </div>
           <div>
-            <p className="text-4xl font-bold">{countdown.seconds}</p>
+            <p className="text-4xl font-bold ">{countdown.seconds}</p>
             <p className="text-sm font-light">SECS</p>
           </div>
         </div>
