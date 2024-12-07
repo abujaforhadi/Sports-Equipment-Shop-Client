@@ -24,15 +24,17 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="container mx-auto my-6">
+    <div className="w-1/2 container mx-auto my-6">
       <h1 className="text-3xl font-bold mb-4 text-center">Product Details</h1>
-      <div className="  p-6 shadow-md rounded">
+      <div className=" shadow-md rounded">
         <img
           src={equipment.image}
           alt={equipment.itemName}
-          className="w-full h-64 object-cover mb-4"
+          className="w-1/2  mx-auto"
         />
         <h2 className="text-2xl font-semibold">{equipment.itemName}</h2>
+        <div className=" badge badge-primary badge-outline">Only <p className="animate__animated animate-bounce animate__infinite text-red-700  p-1"> {equipment.stockStatus} </p> Left!</div>
+
         <p className="text-lg text-gray-700 mb-4">{equipment.description}</p>
         <p className="font-semibold text-lg mb-2">Category: {equipment.categoryName}</p>
         <p className="font-semibold text-lg mb-2">Price: ${equipment.price}</p>

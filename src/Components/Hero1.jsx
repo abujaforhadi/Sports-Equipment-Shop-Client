@@ -12,7 +12,7 @@ const Hero1 = () => {
                         <h1 className="text-4xl font-bold leading-tight  md:text-5xl dark:text-white">
                             Gear Up for Your Next Adventure
                         </h1>
-                        <p className="mt-4 text-lg text-gray-600 md:mt-6 md:text-xl dark:text-gray-400">
+                        <p className="mt-4 text-lg text-primary md:mt-6 md:text-xl dark:text-gray-500">
                             Discover the best in sports equipment and apparel, crafted for performance and durability. Whether you're a professional or a hobbyist, we have everything you need to excel.
                         </p>
                         <div className="mt-6 flex gap-4">

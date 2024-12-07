@@ -62,7 +62,7 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1 dark:text-white">
+        <ul className="menu menu-horizontal text-primary px-1 ">
           {navLinks.map(
             (link) =>
               (!link.authRequired || user) && (

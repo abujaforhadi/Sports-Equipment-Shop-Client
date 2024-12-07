@@ -15,8 +15,8 @@ const Card = ({ product }) => {
   
   // console.log(product);
   return (
-    <div data-aos="fade-up" className="card card-compact bg-base-100 shadow-xl">
-      <figure>
+    <div data-aos="fade-up" className="card card-compact bg-white shadow-xl">
+      <figure className="p-2">
         <img src={image} alt={itemName} className="w-1/3" />
       </figure>
       <div className="badge badge-primary badge-outline mx-5">Only <p className="animate__animated animate__swing animate__infinite text-red-700  p-1"> {stockStatus} </p> Left!</div>

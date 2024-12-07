@@ -120,7 +120,7 @@ const AddEquipment = () => {
       <form onSubmit={handleSubmit}>
         {/* Image URL */}
         <div className="mb-5">
-          <label htmlFor="image" className="block text-sm text-gray-700">
+          <label htmlFor="image" className="block text-sm text-primary">
             Image URL
           </label>
           <input
@@ -137,7 +137,7 @@ const AddEquipment = () => {
 
         {/* Item Name */}
         <div className="mb-5">
-          <label htmlFor="itemName" className="block text-sm text-gray-700">
+          <label htmlFor="itemName" className="block text-sm text-primary">
             Item Name
           </label>
           <input
@@ -154,7 +154,7 @@ const AddEquipment = () => {
 
         {/* Category Name */}
         <div className="mb-5">
-          <label htmlFor="categoryName" className="block text-sm text-gray-700">
+          <label htmlFor="categoryName" className="block text-sm text-primary">
             Category Name
           </label>
           <input
@@ -171,7 +171,7 @@ const AddEquipment = () => {
 
         {/* Description */}
         <div className="mb-5">
-          <label htmlFor="description" className="block text-sm text-gray-700">
+          <label htmlFor="description" className="block text-sm text-primary">
             Description
           </label>
           <textarea
@@ -187,7 +187,7 @@ const AddEquipment = () => {
 
         {/* Price */}
         <div className="mb-5">
-          <label htmlFor="price" className="block text-sm text-gray-700">
+          <label htmlFor="price" className="block text-sm text-primary">
             Price ($)
           </label>
           <input
@@ -204,7 +204,7 @@ const AddEquipment = () => {
 
         {/* Rating */}
         <div className="mb-5">
-          <label htmlFor="rating" className="block text-sm text-gray-700">
+          <label htmlFor="rating" className="block text-sm text-primary">
             Rating (1-5)
           </label>
           <input
@@ -223,7 +223,7 @@ const AddEquipment = () => {
 
         {/* Customization */}
         <div className="mb-5">
-          <label htmlFor="customization" className="block text-sm text-gray-700">
+          <label htmlFor="customization" className="block text-sm text-primary">
             Customization
           </label>
           <input
@@ -239,7 +239,7 @@ const AddEquipment = () => {
 
         {/* Processing Time */}
         <div className="mb-5">
-          <label htmlFor="processingTime" className="block text-sm text-gray-700">
+          <label htmlFor="processingTime" className="block text-sm text-primary">
             Processing Time (days)
           </label>
           <input
@@ -256,7 +256,7 @@ const AddEquipment = () => {
 
         {/* Stock Status */}
         <div className="mb-5">
-          <label htmlFor="stockStatus" className="block text-sm text-gray-700">
+          <label htmlFor="stockStatus" className="block text-sm text-primary">
             Stock Status (Quantity Available)
           </label>
           <input
@@ -273,7 +273,7 @@ const AddEquipment = () => {
 
         {/* User Email */}
         <div className="mb-5">
-          <label htmlFor="userEmail" className="block text-sm text-gray-700">
+          <label htmlFor="userEmail" className="block text-sm text-primary">
             User Email
           </label>
           <input
@@ -288,7 +288,7 @@ const AddEquipment = () => {
 
         {/* User Name */}
         <div className="mb-5">
-          <label htmlFor="userName" className="block text-sm text-gray-700">
+          <label htmlFor="userName" className="block text-sm text-primary">
             User Name
           </label>
           <input
