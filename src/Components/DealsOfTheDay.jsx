@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
+import AOS from "aos";
 
 const DealsOfTheDay = () => {
   const [countdown, setCountdown] = useState({
@@ -35,9 +36,16 @@ const DealsOfTheDay = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    AOS.init(); // Initialize AOS
+  }, []);
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-between bg-black text-white p-8">
-      <div className="text-center md:text-left md:w-1/2">
+      <div
+        data-aos="fade-right" // Add AOS animation to the left side
+        className="text-center md:text-left md:w-1/2"
+      >
         <h1 className="text-4xl font-bold">
           DEALS <span className="text-red-600">OFF THE DAY.</span>
         </h1>
@@ -66,7 +74,10 @@ const DealsOfTheDay = () => {
       </div>
 
       {/* Image Section */}
-      <div className="md:w-1/2 mt-8 md:mt-0">
+      <div
+        data-aos="fade-left" // Add AOS animation to the right side
+        className="md:w-1/2 mt-8 md:mt-0"
+      >
         <img
           src="https://www.eslecollege.com/wp-content/uploads/2022/07/sports-at-school.png"
           alt="Deals Off The Day"

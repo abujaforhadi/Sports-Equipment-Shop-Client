@@ -21,9 +21,6 @@ const Home = () => {
           New Arrivals!
         </h1>
 
-       
-       
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data.map((product) => (
             <Card key={product.id} product={product} />
@@ -38,6 +35,10 @@ const Home = () => {
 
       <div>
         <DealsOfTheDay></DealsOfTheDay>
+        <h1 className="text-center py-2 text-sm">
+          SHOP BY <br />
+          <span className="text-2xl font-bold">BRANDS<span className="text-red-600">.</span></span>
+        </h1>
         <SportsBrands />
       </div>
     </section>
