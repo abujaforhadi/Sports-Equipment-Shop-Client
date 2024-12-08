@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Auth/AuthProvider";
-import animationData from "../assets/choose-your-colors.json"; // Adjust the path to your Lottie file
+import animationData from "../assets/choose-your-colors.json";
 import { useLottie } from "lottie-react";
 
 const Registration = () => {
@@ -44,12 +44,11 @@ const Registration = () => {
 
     const validationErrors = validatePassword(password);
     if (validationErrors.length > 0) {
-      // Combine all errors into a single string
       setPasswordError(validationErrors.join(" "));
-      return; // Stop further execution if password validation fails
+      return; 
     }
 
-    setPasswordError(""); // Clear error if validation passes
+    setPasswordError(""); 
 
     try {
       await createNewUser(email, password);
@@ -65,7 +64,7 @@ const Registration = () => {
     const lowerCaseRegex = /[a-z]/;
     const lengthRegex = /.{6,}/;
 
-    // Check each criterion and collect errors
+    
     const errors = [];
     if (!upperCaseRegex.test(password)) {
       errors.push("Password must contain at least one uppercase letter.");
@@ -77,7 +76,7 @@ const Registration = () => {
       errors.push("Password must be at least 6 characters long.");
     }
 
-    return errors; // Return all errors as an array
+    return errors; 
   };
 
   return (
@@ -151,7 +150,7 @@ const Registration = () => {
               onClick={handleGoogleLogin}
               className="btn bg-red-400 text-white px-4 py-2 rounded flex items-center gap-2 cursor-pointer"
             >
-              Sign in with <FcGoogle />
+              SignUp with <FcGoogle />
             </p>
           </div>
           <div className="mt-4 text-center">
