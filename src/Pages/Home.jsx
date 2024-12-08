@@ -14,13 +14,12 @@ const Home = () => {
   const data = useLoaderData();
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  // Initialize AOS and handle scroll button visibility
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
-      once: true, // Animations trigger only once
-      mirror: false, // Animations do not repeat when scrolling back
+      once: false,
+      mirror: true,
     });
 
     const handleScroll = () => {
@@ -31,23 +30,20 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll to top functionality
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <section className="relative">
-      {/* Hero Slider */}
       <div data-aos="fade-down">
         <Slider />
       </div>
 
-      {/* New Arrivals Section */}
       <div className="py-8">
         <h1
           className="text-center text-2xl pb-4 font-bold text-red-600"
-          data-aos="zoom-in"
+          data-aos="fade-up"
           data-aos-delay="200"
         >
           New Arrivals!
@@ -75,17 +71,16 @@ const Home = () => {
         </p>
       </div>
 
-      {/* Categories Section */}
-      <CategorySection />
+      <div data-aos="fade-right" data-aos-delay="300">
+        <CategorySection />
+      </div>
 
-      {/* Deals of the Day Section */}
       <div className="py-8 bg-gray-100">
         <div data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1200">
           <DealsOfTheDay />
         </div>
       </div>
 
-      {/* Customer Reviews Section */}
       <div className="py-8 px-6">
         <h1
           className="text-center py-2 text-2xl font-bold"
@@ -99,7 +94,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Sports Brands Section */}
       <div className="py-8 bg-gray-50">
         <h1
           className="text-center py-2 text-sm"
@@ -120,7 +114,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
       {showScrollButton && (
         <button
           onClick={scrollToTop}

@@ -2,7 +2,7 @@ import React from "react";
 
 const ConfirmModal = ({ onConfirm, onCancel }) => {
   return (
-    <div className="fixed inset-0 bg-gray-500 bg-opacity-100 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-gray-800  bg-opacity-60 flex justify-center items-center z-50">
       <div className="  p-6 rounded-md">
         <h3 className="text-xl font-semibold mb-4">Are you sure you want to delete this equipment?</h3>
         <div className="flex justify-between">
