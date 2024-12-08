@@ -12,6 +12,7 @@ const AllProducts = () => {
     fetch("https://sports2.vercel.app/data")
       .then((response) => response.json())
       .then((data) => {
+        
         const shuffledData = data.sort(() => Math.random() - 0.5);
         setEquipment(shuffledData);
         setLoading(false); 
@@ -64,6 +65,7 @@ const AllProducts = () => {
         <tbody>
           {equipment.map((item) => (
             <tr key={item._id}>
+              
               <td className="border p-2">{item.itemName}</td>
               <td className="border p-2">{item.categoryName}</td>
               <td className="border p-2">${item.price}</td>
