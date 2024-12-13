@@ -25,10 +25,10 @@ BDSports is a responsive and feature-rich e-commerce website dedicated to sports
 
 ## Setup Instructions:
 
-<!-- ### 1. Clone the Repositories:
+### 1. Clone the Repositories:
 Clone both client-side and server-side repositories:
-- **Client-side repository:** `git clone https://github.com/abujaforhadi/equisports-client.git`
-- **Server-side repository:** `git clone https://github.com/abujaforhadi/equisports-server.git` -->
+- **Client-side repository:** `git clone https://github.com/abujaforhadi/Sports-Equipment-Shop-Client.git`
+- **Server-side repository:** `git clone https://github.com/abujaforhadi/Sports-Equipment-Shop-Server.git`
 
 ### 2. Install Dependencies:
 - **Frontend:** Navigate to the client-side directory and run `npm install`.
