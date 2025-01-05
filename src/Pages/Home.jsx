@@ -50,7 +50,7 @@ const Home = () => {
           New Arrivals!
         </h1>
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 px-6"
           data-aos="fade-up"
           data-aos-delay="400"
         >

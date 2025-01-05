@@ -23,7 +23,7 @@ const Card = ({ product }) => {
 
       <div className="card-body">
         <h2 className="card-title justify-center text-gray-900">{itemName}</h2>
-        <p className="text-gray-800 text-center">Price: ${price}</p>
+        <p className="text-gray-800 text-center">$ {price}</p>
         <div className="card-actions justify-center">
           <Link
             to={`/equipment/${_id}`}
