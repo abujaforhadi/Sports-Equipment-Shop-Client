@@ -38,9 +38,9 @@ export const router = createBrowserRouter([
       {
         path: "/equipment/:id",
         element: (
-          <PrivateRouter>
+          
            <ProductDetails />
-          </PrivateRouter>
+         
         ),
         loader: ({ params }) => fetch(`https://sports2.vercel.app/data/${params._id}`)
 

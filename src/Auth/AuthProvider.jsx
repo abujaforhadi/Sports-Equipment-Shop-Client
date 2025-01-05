@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
       // console.error("Login error:", error.message);
       toast.error("Please input valid email or password");
     } finally {
-      setLoading(false);
+      
     }
   };
 

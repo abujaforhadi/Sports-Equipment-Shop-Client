@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from 'daisyui';
+
 export default {
   darkMode: 'class', // Enables 'class' based dark mode
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"], // Files to scan for Tailwind classes
@@ -58,9 +60,8 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")], // Include DaisyUI plugin
+  plugins: [daisyui], // Updated to use import
   daisyui: {
-    themes: ["light", "dark","synthwave"], // Add this to enable theme switching
+    themes: ["light", "dark", "synthwave"], // DaisyUI themes
   },
-
 };
