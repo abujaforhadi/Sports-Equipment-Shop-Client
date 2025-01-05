@@ -6,7 +6,7 @@ const Hero1 = () => {
     return (
         <>
             <section className="">
-                <div className="px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
+                <div className="px-6  mx-auto lg:flex lg:items-center lg:gap-12">
                     {/* Left Content */}
                     <div className="lg:w-1/2">
                         <h1 className="text-4xl font-bold leading-tight  md:text-5xl dark:text-white">

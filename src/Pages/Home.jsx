@@ -9,6 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import CategorySection from "../Components/CategorySection";
+import Hero1 from "../Components/Hero1";
 
 const Home = () => {
   const data = useLoaderData();
@@ -37,10 +38,10 @@ const Home = () => {
   return (
     <section className="relative">
       <div data-aos="fade-down">
-        <Slider />
+        <Hero1/>
       </div>
 
-      <div className="py-8">
+      <div className="py-4">
         <h1
           className="text-center text-2xl pb-4 font-bold text-red-600"
           data-aos="fade-up"
