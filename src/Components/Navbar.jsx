@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="navbar justify-between md:justify-center top-0 left-0 right-0 z-50 shadow bg-base-100 dark:text-white">
+    <div className="navbar fixed justify-between md:justify-center top-0 left-0 right-0 z-50 shadow bg-base-100 dark:text-white">
       {/* Logo and Mobile Menu */}
       <div className="md:navbar-start">
         <div className="dropdown">
