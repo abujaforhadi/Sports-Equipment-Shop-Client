@@ -53,25 +53,25 @@ const About = () => {
         <div className="team-section mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Example Team Member */}
           <div className="team-member bg-white p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in-up">
-            <img src="team-member.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
+            <img src="https://www.n2growth.com/wp-content/uploads/2019/08/happy-ceo-at-desk.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
             <h3 className="text-xl font-semibold text-[#01849b] mt-4">John Doe</h3>
             <p className="text-gray-600">Founder & CEO</p>
           </div>
 
           <div className="team-member bg-white p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in-up">
-            <img src="team-member.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
+            <img src="https://www.n2growth.com/wp-content/uploads/2019/08/happy-ceo-at-desk.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
             <h3 className="text-xl font-semibold text-[#01849b] mt-4">Jane Smith</h3>
             <p className="text-gray-600">Marketing Head</p>
           </div>
 
           <div className="team-member bg-white p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in-up">
-            <img src="team-member.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
+            <img src="https://www.n2growth.com/wp-content/uploads/2019/08/happy-ceo-at-desk.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
             <h3 className="text-xl font-semibold text-[#01849b] mt-4">Emily White</h3>
             <p className="text-gray-600">Product Specialist</p>
           </div>
 
           <div className="team-member bg-white p-6 rounded-lg shadow-lg text-center" data-aos="zoom-in-up">
-            <img src="team-member.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
+            <img src="https://www.n2growth.com/wp-content/uploads/2019/08/happy-ceo-at-desk.jpg" alt="Team Member" className="w-24 h-24 rounded-full mx-auto" />
             <h3 className="text-xl font-semibold text-[#01849b] mt-4">Mark Johnson</h3>
             <p className="text-gray-600">Customer Support</p>
           </div>
