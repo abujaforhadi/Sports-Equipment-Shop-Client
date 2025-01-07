@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
+import { Link } from "react-router";  
 import Loading from "./Loading";
 
 const CategorySection = () => {
@@ -7,7 +8,7 @@ const CategorySection = () => {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [visibleItems, setVisibleItems] = useState(6);
+  const [visibleItems, setVisibleItems] = useState(4);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,11 +25,11 @@ const CategorySection = () => {
         return response.json();
       })
       .then((data) => {
+        setItems(data);
         const uniqueCategories = [
           ...new Set(data.map((item) => item.categoryName)),
         ];
         setCategories(uniqueCategories);
-        setItems(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -41,25 +42,19 @@ const CategorySection = () => {
     setSelectedCategory(category);
     const filtered = items.filter((item) => item.categoryName === category);
     setFilteredItems(filtered);
-    setVisibleItems(6); 
-  };
-
-  const handleShowAllItems = () => {
-    setSelectedCategory(null);
-    setFilteredItems(items);
-    setVisibleItems(6);
+    setVisibleItems(4);
   };
 
   const handleLoadMore = () => {
-    setVisibleItems((prevVisibleItems) => prevVisibleItems + 6); 
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 4);
   };
 
   if (loading) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="text-center text-red-500 font-semibold">{error}</div>;
   }
 
   const itemsToDisplay = filteredItems.length > 0 ? filteredItems : items;
@@ -67,30 +62,19 @@ const CategorySection = () => {
 
   return (
     <div className="container mx-auto my-6">
-      <h1
-        className="text-center text-2xl font-bold mb-4"
-        data-aos="fade-up"
-      >
-        Categories
-      </h1>
-      <div
-        className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6"
-        data-aos="fade-up"
-      >
+      
+
+      <div className="flex justify-center gap-4 mb-6">
         <button
-          className={`bg-blue-100 shadow-lg p-2 rounded-lg text-center text-primary text-sm cursor-pointer hover:bg-blue-200 transition ${
-            !selectedCategory ? "bg-blue-400 text-white" : ""
-          }`}
-          onClick={handleShowAllItems}
+          className={`px-4 py-2 border border-cyan-400 text-cyan-600 rounded-md ${!selectedCategory ? "bg-cyan-100" : ""}`}
+          onClick={() => handleCategoryClick(null)}
         >
-          All Items
+          All
         </button>
         {categories.map((category, index) => (
           <button
             key={index}
-            className={`bg-blue-100 shadow-lg p-2 rounded-lg text-center text-sm cursor-pointer hover:bg-blue-200 transition ${
-              selectedCategory === category ? "bg-blue-400 text-white" : ""
-            }`}
+            className={`px-4 py-2 border border-cyan-400 text-cyan-600 rounded-md ${selectedCategory === category ? "bg-cyan-100" : ""}`}
             onClick={() => handleCategoryClick(category)}
           >
             {category}
@@ -98,37 +82,50 @@ const CategorySection = () => {
         ))}
       </div>
 
-      <h1
-        className="text-center text-2xl font-bold mb-4"
-        data-aos="fade-right"
-      >
-        {selectedCategory ? `${selectedCategory} Items` : "All Items"}
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-6" data-aos="fade-up">
         {displayedItems.map((item) => (
           <div
             key={item._id}
-            className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition"
+            className="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition transform hover:scale-105"
             data-aos="zoom-in"
           >
-            <img
-              src={item.image}
-              alt={item.itemName}
-              className="w-full h-48 object-cover rounded-lg"
-            />
-            <h2 className="text-xl font-semibold mt-2">{item.itemName}</h2>
-            <p className="text-gray-600 text-sm mt-1">{item.description}</p>
-            <p className="text-gray-800 font-bold mt-2">Price: ${item.price}</p>
-            <p className="text-gray-500 text-sm">Rating: {item.rating}</p>
-            <p className="text-gray-500 text-sm">Stock: {item.stockStatus}</p>
+            <div className="relative">
+              <img
+                src={item.image}
+                alt={item.itemName}
+                className="w-full h-48 object-cover rounded-lg"
+              />
+              <div className="absolute top-2 right-2 bg-[#01849b] text-white text-xs py-1 px-3 rounded-full">
+                {item.rating} ★
+              </div>
+            </div>
+            <div className="mt-4">
+              <h2 className="text-xl font-semibold text-[#01849b]">{item.itemName}</h2>
+              <p className="text-gray-600 text-sm mt-1">{item.description.slice(0, 50)}...</p>
+              <p className="text-[#01849b] font-bold mt-2"> $ {item.price}</p>
+            </div>
+            <div className="mt-4 flex justify-between items-center">
+              <button className="px-4 py-2 bg-[#01849b] text-white text-sm rounded-lg hover:bg-[#017F8A] transition">
+                Add to Cart
+              </button>
+              <Link
+                to={`/equipment/${item._id}`} 
+                className="block text-center px-2 py-2 bg-[#0FABCA] text-white rounded-md hover:bg-[#01849b] transition-all duration-200"
+              >
+                View Details
+              </Link>
+            </div>
           </div>
         ))}
       </div>
 
       {displayedItems.length < itemsToDisplay.length && (
         <div className="flex justify-center mt-4" data-aos="fade-up">
-          <button className="btn btn-outline" onClick={handleLoadMore}>
-            Load More
+          <button
+            className="px-6 py-3 bg-[#01849b] text-white rounded-md hover:bg-[#017F8A] transition"
+            onClick={handleLoadMore}
+          >
+            See More
           </button>
         </div>
       )}

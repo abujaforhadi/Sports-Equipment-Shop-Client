@@ -18,14 +18,14 @@ const Hero1 = () => {
                         <div className="mt-6 flex gap-4">
                             <Link
                                 to="/all-products"
-                                className="inline-flex items-center justify-center px-6 py-3 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                                className="inline-flex items-center justify-center px-6 py-3 text-white bg-[#0FABCA] rounded-lg shadow-md hover:bg-[#01849b] focus:ring-4  "
                             >
                                 Explore Products
                                 <FaArrowRight className="ml-2" />
                             </Link>
                             <Link
                                 to="/contact"
-                                className="inline-flex items-center justify-center px-6 py-3 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-100 focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-800 dark:focus:ring-blue-800"
+                                className="inline-flex items-center justify-center px-6 py-3 text-[#0FABCA] border border-[#01849b] rounded-lg hover:bg-[#173c42] hover:text-white focus:ring-4 focus:ring-blue-300 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-800 dark:focus:ring-blue-800"
                             >
                                 Get in Touch
                             </Link>

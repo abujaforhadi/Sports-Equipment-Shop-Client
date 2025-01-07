@@ -27,6 +27,7 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "All Products", path: "/all-products" },
     { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
     { name: "Add Equipment", path: "/add-equipment", authRequired: true },
     { name: "My Equipment List", path: "/my-equipment", authRequired: true },
   ];

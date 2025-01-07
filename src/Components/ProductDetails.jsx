@@ -105,7 +105,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="mx-auto lg:px-8 lg:py-20">
+    <div className="mx-auto lg:px-8 lg:pt-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         <div className="space-y-4">
           <div className="relative aspect-square">
@@ -120,11 +120,11 @@ const ProductDetails = () => {
               )}
             </div>
 
-            <div className="relative h-full">
+            <div className="relative ">
               <img
                 src={equipment.image}
                 alt={equipment.itemName}
-                className="w-full h-full object-cover"
+                className="w-1/2 mx-auto"
               />
               <button
                 onClick={previousImage}

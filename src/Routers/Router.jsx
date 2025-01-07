@@ -10,7 +10,8 @@ import ProductDetails from "../Components/ProductDetails";
 import AddEquipment from "../Pages/AddEquipment.jsx";
 import UpdateEquipment from "../Components/UpdateEquipment";
 import Error from "../Pages/Error.jsx";
-import Contact from "../Components/Contact.jsx";
+import Contact from "../Pages/Contact.jsx";
+import About from "../Pages/About.jsx";
 
 // Updated router definition
 export const router = createBrowserRouter([
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/equipment/:id",

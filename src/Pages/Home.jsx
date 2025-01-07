@@ -45,16 +45,16 @@ const Home = () => {
         <OfferGrid/>
       </div>
 
-      <div className="py-4">
+      <div className="py-6 bg-gray-50">
         <h1
-          className="text-center text-2xl pb-4 font-bold text-red-600"
+          className="text-center text-3xl pb-6 font-bold text-[#01849b]"
           data-aos="fade-up"
           data-aos-delay="200"
         >
           New Arrivals!
         </h1>
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 "
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 px-4"
           data-aos="fade-up"
           data-aos-delay="400"
         >
@@ -63,14 +63,13 @@ const Home = () => {
           ))}
         </div>
         <p
-          className="flex justify-center my-6"
+          className="flex justify-center my-8"
           data-aos="fade-up"
           data-aos-delay="600"
         >
-          
           <Link
             to="/all-products"
-            className="block text-center py-2 px-5 bg-[#0FABCA] text-white rounded-md hover:bg-[#01849b] transition-all duration-200"
+            className="block text-center py-2 px-6 bg-[#01849b] text-white rounded-md hover:bg-[#017F8A] transition-all duration-300"
           >
             View All
           </Link>
@@ -81,7 +80,7 @@ const Home = () => {
         <CategorySection />
       </div>
 
-      <div className="py-8 bg-gray-100">
+      <div className="py-8 bg-gray-50">
         <div data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1200">
           <DealsOfTheDay />
         </div>
@@ -89,7 +88,7 @@ const Home = () => {
 
       <div className="py-8 px-6">
         <h1
-          className="text-center py-2 text-2xl font-bold"
+          className="text-center py-4 text-2xl font-bold text-[#01849b]"
           data-aos="fade-right"
           data-aos-delay="200"
         >
@@ -102,13 +101,13 @@ const Home = () => {
 
       <div className="py-8 bg-gray-50">
         <h1
-          className="text-center py-2 text-sm"
+          className="text-center py-4 text-lg text-gray-700"
           data-aos="fade-left"
           data-aos-delay="200"
         >
           SHOP BY <br />
-          <span className="text-2xl font-bold">
-            BRANDS<span className="text-red-600">.</span>
+          <span className="text-2xl font-bold text-[#01849b]">
+            BRANDS
           </span>
         </h1>
         <div
@@ -123,12 +122,12 @@ const Home = () => {
       {showScrollButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 rounded-full bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300"
+          className="fixed bottom-6 right-6 p-4 rounded-full bg-[#01849b] text-white shadow-lg hover:bg-[#017F8A] transition duration-300"
           aria-label="Scroll to Top"
           data-aos="fade"
           data-aos-delay="800"
         >
-          <FaRegArrowAltCircleUp />
+          <FaRegArrowAltCircleUp size={24} />
         </button>
       )}
     </section>
