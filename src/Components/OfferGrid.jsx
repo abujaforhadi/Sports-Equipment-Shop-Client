@@ -22,7 +22,7 @@ const OfferGrid = () => {
         <img
           alt="Football"
           src="https://blackbud.com.bd/wp-content/uploads/2022/06/Al-Rihla-football.jpg"
-          className="h-full absolute bottom-0 left-[50%] transform translate-x-[-50%]"
+          className=" absolute bottom-0 left-[50%] transform translate-x-[-50%]"
         />
       </div>
 

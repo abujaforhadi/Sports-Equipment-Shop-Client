@@ -45,7 +45,7 @@ const Home = () => {
         <OfferGrid/>
       </div>
 
-      <div className="py-6 bg-gray-50">
+      <div className="py-6 ">
         <h1
           className="text-center text-3xl pb-6 font-bold text-[#01849b]"
           data-aos="fade-up"
@@ -80,7 +80,7 @@ const Home = () => {
         <CategorySection />
       </div>
 
-      <div className="py-8 bg-gray-50">
+      <div className="py-8  ">
         <div data-aos="zoom-in" data-aos-offset="200" data-aos-duration="1200">
           <DealsOfTheDay />
         </div>
@@ -99,7 +99,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="py-8 bg-gray-50">
+      <div className="py-8  ">
         <h1
           className="text-center py-4 text-lg text-gray-700"
           data-aos="fade-left"

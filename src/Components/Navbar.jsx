@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { MdOutlineMenuOpen } from "react-icons/md";
 import { AuthContext } from "../Auth/AuthProvider";
-import { Link, NavLink } from "react-router"; 
+import { Link, NavLink } from "react-router";
 import { themeChange } from "theme-change";
 
 const Navbar = () => {
@@ -26,10 +26,11 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "All Products", path: "/all-products" },
-    { name: "Contact", path: "/contact" },
-    { name: "About", path: "/about" },
+
     { name: "Add Equipment", path: "/add-equipment", authRequired: true },
     { name: "My Equipment List", path: "/my-equipment", authRequired: true },
+    { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
   ];
 
   return (
@@ -42,14 +43,14 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow dark:text-white"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow dark:text-white left-0 ml-4"
             role="menu"
           >
             {navLinks.map(
               (link) =>
                 (!link.authRequired || user) && (
                   <li key={link.name} role="menuitem">
-                    <NavLink to={link.path} className="capitalize">
+                    <NavLink to={link.path} className="capitalize hover:bg-[#0FABCA] hover:text-white transition-all duration-200">
                       {link.name}
                     </NavLink>
                   </li>
@@ -69,7 +70,7 @@ const Navbar = () => {
             (link) =>
               (!link.authRequired || user) && (
                 <li key={link.name}>
-                  <NavLink to={link.path} className="capitalize">
+                  <NavLink to={link.path} className="capitalize hover:bg-[#0FABCA] hover:text-white transition-all duration-200">
                     {link.name}
                   </NavLink>
                 </li>

@@ -64,7 +64,7 @@ const CategorySection = () => {
     <div className="container mx-auto my-6">
       
 
-      <div className="flex justify-center gap-4 mb-6">
+      <div className="grid grid-cols-4 md:grid-cols-8 justify-center gap-4 mb-6">
         <button
           className={`px-4 py-2 border border-cyan-400 text-cyan-600 rounded-md ${!selectedCategory ? "bg-cyan-100" : ""}`}
           onClick={() => handleCategoryClick(null)}
