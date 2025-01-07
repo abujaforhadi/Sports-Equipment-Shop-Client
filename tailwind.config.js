@@ -2,7 +2,7 @@
 import daisyui from 'daisyui';
 
 export default {
-  darkMode: 'class', // Enables 'class' based dark mode
+  darkMode: 'class', 
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"], // Files to scan for Tailwind classes
   theme: {
     extend: {

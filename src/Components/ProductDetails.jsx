@@ -10,7 +10,7 @@ const Modal = ({ onClose, onConfirm }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded-md w-80">
         <h2 className="text-lg font-semibold">Confirm Purchase</h2>
-        <p className="text-gray-600 my-4">Are you sure you want to buy this product?</p>
+        <p className="  my-4">Are you sure you want to buy this product?</p>
         <div className="flex justify-between">
           <button
             onClick={onClose}
@@ -170,47 +170,47 @@ const ProductDetails = () => {
                 <FaStar key={i} className="w-4 h-4 fill-black" />
               ))}
             </div>
-            <span className="text-sm text-gray-600">{equipment.rating} Reviews</span>
+            <span className="text-sm ">{equipment.rating} Reviews</span>
           </div>
 
-          <h1 className="text-[1.6rem] lg:text-[1.9rem] text-gray-800 font-semibold">
+          <h1 className="text-[1.6rem] lg:text-[1.9rem]   font-semibold">
             {equipment.itemName}
           </h1>
 
-          <p className="text-gray-600 text-[0.9rem]">{equipment.description}</p>
+          <p className="  text-[0.9rem]">{equipment.description}</p>
 
           <div className="flex items-center gap-3">
-            <span className="text-[1.5rem] text-gray-800 font-medium">${equipment.price}</span>
+            <span className="text-[1.5rem]   font-medium">${equipment.price}</span>
             {equipment.originalPrice && (
-              <span className="text-lg text-gray-500 line-through">
+              <span className="text-lg  line-through">
                 ${equipment.originalPrice}
               </span>
             )}
           </div>
 
           <div className="pb-2">
-            <p className="font-medium text-[0.9rem] text-gray-600">Offer expires in:</p>
+            <p className="font-medium text-[0.9rem]  ">Offer expires in:</p>
             <div className="flex items-center gap-[10px] mt-2">
               <div className="flex items-center justify-center flex-col gap-[0.2rem]">
-                <h5 className="py-2 px-3 bg-gray-100 text-[1.9rem] font-semibold">
+                <h5 className="py-2 px-3   text-[1.9rem] font-semibold">
                   {formatNumber(timeLeft.days)}
                 </h5>
                 <span className="text-[0.7rem]">Days</span>
               </div>
               <div className="flex items-center justify-center flex-col gap-[0.2rem]">
-                <h5 className="py-2 px-3 bg-gray-100 text-[1.9rem] font-semibold">
+                <h5 className="py-2 px-3   text-[1.9rem] font-semibold">
                   {formatNumber(timeLeft.hours)}
                 </h5>
                 <span className="text-[0.7rem]">Hours</span>
               </div>
               <div className="flex items-center justify-center flex-col gap-[0.2rem]">
-                <h5 className="py-2 px-3 bg-gray-100 text-[1.9rem] font-semibold">
+                <h5 className="py-2 px-3   text-[1.9rem] font-semibold">
                   {formatNumber(timeLeft.minutes)}
                 </h5>
                 <span className="text-[0.7rem]">Minutes</span>
               </div>
               <div className="flex items-center justify-center flex-col gap-[0.2rem]">
-                <h5 className="py-2 px-3 bg-gray-100 text-[1.9rem] font-semibold">
+                <h5 className="py-2 px-3   text-[1.9rem] font-semibold">
                   {formatNumber(timeLeft.seconds)}
                 </h5>
                 <span className="text-[0.7rem]">Seconds</span>

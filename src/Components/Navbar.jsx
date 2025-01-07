@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   useEffect(() => {
-    themeChange(false); 
+    themeChange(false); // Initializes the theme controller
   }, []);
 
   const handleLogout = async () => {
@@ -37,8 +37,7 @@ const Navbar = () => {
       <div className="md:navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
-          <MdOutlineMenuOpen />
-
+            <MdOutlineMenuOpen />
           </div>
           <ul
             tabIndex={0}
@@ -55,7 +54,6 @@ const Navbar = () => {
                   </li>
                 )
             )}
-           
           </ul>
         </div>
         <Link to="/" className="text-xl md:text-2xl font-medium text-red-600">
@@ -65,7 +63,7 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal text-primary px-1 ">
+        <ul className="menu menu-horizontal text-primary px-1">
           {navLinks.map(
             (link) =>
               (!link.authRequired || user) && (
@@ -80,16 +78,25 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end flex items-center gap-4">
-        
-          
-          <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+        <input
+          type="checkbox"
+          value="synthwave"
+          className="toggle theme-controller"
+          onChange={(e) => {
+            const isChecked = e.target.checked;
+            if (isChecked) {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+          }}
+        />
         {user && user.email ? (
           <div className="flex items-center gap-4">
             <img
               src={user.photoURL || "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"}
               alt={user.displayName || "User"}
               title={user.displayName}
-              
               className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-300"
             />
             <button
@@ -101,18 +108,20 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-         <> <Link
-         to="/login"
-         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition "
-       >
-         Login
-       </Link>
-       <Link
-         to="/registration"
-         className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition hidden md:flex"
-       >
-         Registration
-       </Link></>
+          <>
+            <Link
+              to="/login"
+              className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition"
+            >
+              Login
+            </Link>
+            <Link
+              to="/registration"
+              className="btn bg-[#403F3F] text-white hover:bg-[#2c2b2b] transition hidden md:flex"
+            >
+              Registration
+            </Link>
+          </>
         )}
       </div>
     </div>
