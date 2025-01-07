@@ -14,7 +14,7 @@ BDSports is a responsive and feature-rich e-commerce website dedicated to sports
 - **Animations:** Implemented with Lottie React and React Awesome Reveal for smooth UI transitions.
 - **Error Handling:** Custom error and success messages displayed using toast or sweet alert.
 - **404 Page:** Displayed for non-existing routes.
-
+## Server repo link: https://github.com/abujaforhadi/Sports-Equipment-Shop-Server
 ## Technologies Used:
 - **Frontend:** React, Tailwind CSS, Firebase Authentication
 - **Backend:** Node.js, Express, MongoDB
