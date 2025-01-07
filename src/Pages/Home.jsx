@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <section className="relative">
       <div data-aos="fade-down">
-        <Hero1/>
+        <Hero1 />
       </div>
 
       <div className="py-4">
@@ -50,7 +50,7 @@ const Home = () => {
           New Arrivals!
         </h1>
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 px-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 "
           data-aos="fade-up"
           data-aos-delay="400"
         >
@@ -63,11 +63,12 @@ const Home = () => {
           data-aos="fade-up"
           data-aos-delay="600"
         >
+          
           <Link
             to="/all-products"
-            className="btn btn-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600"
+            className="block text-center py-2 px-5 bg-[#0FABCA] text-white rounded-md hover:bg-[#01849b] transition-all duration-200"
           >
-            View All Products
+            View All
           </Link>
         </p>
       </div>
