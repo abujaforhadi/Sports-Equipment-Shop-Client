@@ -105,7 +105,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="mx-auto lg:px-8 lg:py-12">
+    <div className="mx-auto lg:px-8 lg:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         <div className="space-y-4">
           <div className="relative aspect-square">
