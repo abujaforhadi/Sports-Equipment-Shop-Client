@@ -5,24 +5,24 @@ import ConfirmModal from "../Components/ConfirmModal"; // Modal to confirm delet
 import { AuthContext } from "../Auth/AuthProvider";
 import AOS from "aos";
 
-
 const MyEquipment = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, 
-      once: true, 
+      duration: 1000,
+      once: true,
     });
   }, []);
+
   const [equipmentList, setEquipmentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [equipmentToDelete, setEquipmentToDelete] = useState(null);
-  const { user } = useContext(AuthContext); 
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   if (!user) {
-    navigate('/login');
-    return null; 
+    navigate("/login");
+    return null;
   }
 
   useEffect(() => {
@@ -30,9 +30,7 @@ const MyEquipment = () => {
       fetch(`https://sports2.vercel.app/data`)
         .then((response) => response.json())
         .then((data) => {
-          // console.log("Fetched data:", data);
           const filteredData = data.filter((item) => item.userEmail === user.email);
-          // console.log("Filtered data:", filteredData);
           setEquipmentList(filteredData);
           setLoading(false);
         })
@@ -50,11 +48,7 @@ const MyEquipment = () => {
 
   const handleDelete = (id) => {
     setEquipmentToDelete(id);
-  
-
-
     setDeleteConfirm(true);
-
   };
 
   const confirmDelete = async () => {
@@ -68,7 +62,6 @@ const MyEquipment = () => {
       );
       toast.success("Equipment deleted successfully.");
     } catch (error) {
-      // console.error("Error deleting equipment:", error);
       toast.error("Error deleting equipment.");
     } finally {
       setLoading(false);
@@ -77,46 +70,64 @@ const MyEquipment = () => {
   };
 
   if (loading) {
-    return <loading></loading>;
+    return <div>Loading...</div>;
   }
-  
 
   return (
-    <div className="container mx-auto my-6">
+    <div className="container text-black mx-auto my-6">
       <h1 className="text-3xl font-bold mb-4 text-center">My Equipment</h1>
-      <div className="grid  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {equipmentList.map((equipment) => (
-          <div data-aos="flip-left"
-            key={equipment._id}
-            className="  p-6 shadow-md rounded-md bg-white/20"
-          >
-            <img
-              src={equipment.image}
-              alt={equipment.itemName}
-              className="w-1/2 mx-auto  object-cover mb-4"
-            />
-            <h2 className="text-2xl font-semibold">{equipment.itemName}</h2>
-            <p className="text-xs text-gray-400 mb-4">{equipment.description}</p>
-            <p className="font-semibold text-lg mb-2">
-              Category: {equipment.categoryName}
-            </p>
-            <p className="font-semibold text-lg mb-2">Price: ${equipment.price}</p>
-            <div className="flex justify-between mt-4">
-              <button
-                onClick={() => handleUpdate(equipment._id)}
-                className="bg-blue-500 text-white px-4 py-2 rounded"
+      <div className="overflow-x-auto">
+        <table className="table-auto w-full border-collapse border  border-cyan-300">
+          <thead className="bg-cyan-200">
+            <tr>
+              <th className="border  border-cyan-300 px-4 py-2">Image</th>
+              <th className="border  border-cyan-300 px-4 py-2">Name</th>
+              <th className="border  border-cyan-300 px-4 py-2">Description</th>
+              <th className="border  border-cyan-300 px-4 py-2">Category</th>
+              <th className="border  border-cyan-300 px-4 py-2">Price</th>
+              <th className="border  border-cyan-300 px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {equipmentList.map((equipment, index) => (
+              <tr
+                key={equipment._id}
+                data-aos="fade-up"
+                className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
               >
-                Update
-              </button>
-              <button
-                onClick={() => handleDelete(equipment._id)}
-                className="bg-red-500 text-white px-4 py-2 rounded"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+                <td className="border  border-cyan-300 px-4 py-2 text-center">
+                  <img
+                    src={equipment.image}
+                    alt={equipment.itemName}
+                    className="w-16 h-16 object-cover mx-auto"
+                  />
+                </td>
+                <td className="border  border-cyan-500 px-4 py-2">{equipment.itemName}</td>
+                <td className="border  border-cyan-300 px-4 py-2 text-sm">
+                  {equipment.description}
+                </td>
+                <td className="border  border-cyan-300 px-4 py-2">{equipment.categoryName}</td>
+                <td className="border  border-cyan-300 px-4 py-2">${equipment.price}</td>
+                <td className="border  border-cyan-300 px-4 py-2">
+                  <div className="flex justify-center gap-2">
+                    <button
+                      onClick={() => handleUpdate(equipment._id)}
+                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                    >
+                      Update
+                    </button>
+                    <button
+                      onClick={() => handleDelete(equipment._id)}
+                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {deleteConfirm && (
