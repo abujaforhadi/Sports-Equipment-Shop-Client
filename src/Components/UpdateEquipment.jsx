@@ -60,8 +60,8 @@ const UpdateEquipment = () => {
   };
 
   return (
-    <div className="container mx-auto my-6">
-      <h1 className="text-3xl font-bold mb-4">Update Equipment</h1>
+    <div className="container mx-auto my-6 pt-16">
+      <h1 className="text-3xl text-cyan-500 font-bold mb-4">Update Equipment</h1>
 
       {successMessage && (
         <div className="bg-green-100 text-green-700 p-4 rounded mb-4">
