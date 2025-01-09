@@ -22,7 +22,7 @@ const OfferGrid = () => {
         <img
           alt="Football"
           src="https://blackbud.com.bd/wp-content/uploads/2022/06/Al-Rihla-football.jpg"
-          className=" absolute bottom-0 left-[50%] transform translate-x-[-50%]"
+          className="w-full h-full absolute bottom-0 left-[50%] transform translate-x-[-50%]"
         />
       </div>
 
@@ -88,7 +88,7 @@ const OfferGrid = () => {
         <img
           alt="Running Shoes"
           src="https://images.contentstack.io/v3/assets/blt6b512cc60b434656/blt268d5943b00e9aef/657849f6cc647824bfc4316a/asics-choose-running-shoes-lp-article-06032022-2.jpg?format=webp&quality=80"
-          className=" absolute top-[50%] left-[50%] transform translate-y-[-50%] translate-x-[-50%]"
+          className="h-full absolute top-[50%] left-[50%] transform translate-y-[-50%] translate-x-[-50%]"
         />
       </div>
     </div>
