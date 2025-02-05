@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const Hero1 = () => {
     return (
         <>
-            <section className="">
+            <section className="md:pt-24 md:pb-20">
                 <div className="px-6  mx-auto lg:flex lg:items-center lg:gap-12">
                     {/* Left Content */}
                     <div className="lg:w-1/2">
