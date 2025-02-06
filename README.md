@@ -3,6 +3,7 @@
 **Live Site URL:** [https://bdsports.abujafor.me/](https://bdsports.abujafor.me/)
 
 BDSports is a responsive and feature-rich e-commerce website dedicated to sports equipment. It allows users to browse, add, update, and purchase sports accessories across various categories. The website includes functionalities such as user authentication, product management, and a personalized experience for registered users.
+![2](https://github.com/user-attachments/assets/2e3efded-f630-40bf-a6a7-9050dac6e6f3)
 
 ## Features:
 - **Responsive Design:** Fully responsive across mobile, tablet, and desktop views.
